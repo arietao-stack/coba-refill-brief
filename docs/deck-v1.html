@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CÔBA'S DAUGHTER — Creator Deck · Endless Summer Refill Ritual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="vendor/reveal.css" />
+<style>
+  :root{
+    --paper:#FBF8F1; --cream:#F1EADB; --sand:#E7DCC8;
+    --sage:#7E8E6C; --sage-deep:#5E6B4E; --forest:#2E3A2A;
+    --coffee:#33251C; --ink:#23251E; --muted:#6E6759; --line:#D9CFBB;
+  }
+  .reveal{font-family:"Inter",system-ui,sans-serif;font-size:24px;color:var(--ink)}
+  .reveal h1,.reveal h2,.reveal h3,.reveal h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.06;letter-spacing:-.01em;margin:0;text-transform:none}
+  .reveal p{margin:0;line-height:1.5}
+  .reveal .slides{text-align:left}
+  .reveal .slides section{height:720px;padding:0;box-sizing:border-box;top:0!important}
+  .reveal ul{margin:0;list-style:none}
+
+  /* progress + controls tint */
+  .reveal .progress{color:var(--sage);height:4px}
+  .reveal .controls{color:var(--sage-deep)}
+  .reveal .slide-number{background:transparent;color:var(--muted);font-family:"Inter";font-weight:600;font-size:13px}
+
+  .pad{height:100%;box-sizing:border-box;padding:52px 60px;display:flex;flex-direction:column}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--sage-deep)}
+  .eyebrow.lt{color:#B8C4A6}
+  .divider{width:46px;height:3px;background:var(--sage);border-radius:2px;margin-bottom:16px}
+  .lt .divider,.on-dark .divider{background:#AEBE96}
+  .brandmark{font-family:"Fraunces";font-weight:600;font-size:19px;letter-spacing:.05em}
+  .brandmark small{display:block;font-family:"Inter";font-size:9.5px;font-weight:700;letter-spacing:.26em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+  .on-dark .brandmark small{color:#9FA894}
+  h2.title{font-size:44px;margin:6px 0 0}
+  .sub{color:var(--muted);font-size:17px;margin-top:12px;max-width:60ch}
+  .on-dark{color:#EDEAE0}
+  .on-dark .sub{color:#CBC7BB}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 34px -20px rgba(51,37,28,.4)}
+  .on-dark .card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.15);box-shadow:none}
+  .num{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--sage);color:#fff;font-family:"Fraunces";font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:600}
+
+  /* COVER */
+  .cover{position:relative;height:100%}
+  .cover .art{position:absolute;top:0;right:0;width:46%;height:100%;background:url('img/hero.jpg') center 26%/cover no-repeat}
+  .cover .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--forest) 0%,rgba(46,58,42,.35) 30%,rgba(46,58,42,0) 70%)}
+  .cover .txt{position:relative;z-index:2;width:62%;height:100%;padding:52px 60px;display:flex;flex-direction:column}
+  .cover h1{font-size:60px;line-height:1.02;color:#fff;margin-top:auto;max-width:13ch}
+  .cover .lede{color:#E7E0D2;font-size:18px;margin-top:18px;max-width:44ch}
+  .cover .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+  .cover .foot{margin-top:auto;padding-top:22px;font-size:13px;color:#AEBE96;letter-spacing:.04em}
+
+  /* generic two-column body */
+  .body{flex:1;display:flex;gap:26px;margin-top:22px;min-height:0}
+  .col{flex:1;display:flex;flex-direction:column;gap:16px;min-height:0}
+
+  /* ask */
+  .vcard{padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
+  .vcard h3{font-size:22px;margin-bottom:6px}
+  .vcard p{font-size:15px;color:var(--muted)}
+  .winpanel{background:linear-gradient(160deg,var(--sage) 0%,var(--sage-deep) 100%);color:#fff;border-radius:14px;padding:24px 26px}
+  .winpanel h4{color:#fff;font-size:20px;margin-bottom:14px}
+  .winpanel li{position:relative;padding-left:24px;font-size:15.5px;margin-bottom:11px;color:#F1F5EB}
+  .winpanel li::before{content:"✓";position:absolute;left:0;font-weight:700;color:#E4EDD4}
+  .ritual{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:15.5px}
+  .ritual b{color:var(--sage-deep)}
+
+  /* rules */
+  .rulecard{border-radius:14px;padding:26px 28px;height:100%;box-sizing:border-box}
+  .rulecard.do{background:#EDF1E4;border:1px solid #D7DEC6}
+  .rulecard.dont{background:#F3E9E2;border:1px solid #E6D3C6}
+  .rulecard h4{font-size:23px;margin-bottom:16px}
+  .rulecard li{font-size:16px;padding-left:24px;position:relative;margin-bottom:13px;line-height:1.4}
+  .rulecard.do li::before{content:"→";position:absolute;left:0;color:var(--sage-deep);font-weight:700}
+  .rulecard.dont li::before{content:"×";position:absolute;left:0;color:#B0563C;font-weight:700}
+
+  /* products */
+  .pcard{overflow:hidden;display:flex;flex-direction:column;height:100%}
+  .pcard .im{height:230px;background:#fff;display:flex;align-items:center;justify-content:center}
+  .pcard .im img{max-height:214px;max-width:92%;object-fit:contain}
+  .pcard .pb{padding:18px 24px 22px}
+  .step{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-deep)}
+  .pcard h3{font-size:23px;margin:5px 0 3px}
+  .pcard .ings{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+  .specrow{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+  .specrow span{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:12px;font-weight:600}
+  .pcard .sell li{font-size:14px;padding-left:16px;position:relative;margin-bottom:7px;line-height:1.35}
+  .pcard .sell li::before{content:"•";position:absolute;left:0;color:var(--sage);font-weight:700}
+
+  /* hooks (dark video slides) */
+  .hooklist{display:flex;flex-direction:column;gap:12px}
+  .hookc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:15px 18px;font-size:16px;color:#EFE9DC;line-height:1.42}
+  .videohead h2{font-size:42px;color:#fff;margin-top:4px}
+  .videohead .sub{color:#CBC7BB}
+
+  /* storyboard */
+  .beats{display:flex;gap:20px;flex:1;min-height:0;margin-top:20px}
+  .beat{flex:1;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px -22px rgba(51,37,28,.4)}
+  .beat .bi{height:200px;background:#eee center/cover no-repeat}
+  .beat .bt{padding:16px 18px 18px}
+  .beat .tc{font-family:"Fraunces";font-size:26px;color:var(--sage-deep)}
+  .beat .role{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin:4px 0 8px}
+  .beat p{font-size:14px;color:#3c3a32;line-height:1.42}
+
+  /* script steps */
+  .steps{display:flex;gap:20px;flex:1;min-height:0;margin-top:20px}
+  .scard{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px;box-shadow:0 14px 34px -24px rgba(51,37,28,.4);display:flex;flex-direction:column}
+  .scard .sh{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .scard h4{font-size:18px}
+  .scard p{font-size:15px;color:#39372f;line-height:1.5}
+  .noteband{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:15px}
+  .noteband b{color:var(--sage-deep)}
+
+  /* hook bank 3 col */
+  .bank{display:flex;gap:20px;flex:1;min-height:0;margin-top:18px}
+  .bankcol{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px;display:flex;flex-direction:column;box-shadow:0 14px 34px -26px rgba(51,37,28,.4)}
+  .bankcol h4{font-size:16.5px;margin-bottom:4px}
+  .bankcol .ct{font-size:11.5px;color:var(--muted);margin-bottom:12px}
+  .bankcol li{font-size:12.7px;line-height:1.34;padding-left:14px;position:relative;margin-bottom:10px;color:#38362f}
+  .bankcol li::before{content:"“";position:absolute;left:0;top:-1px;color:var(--sage);font-weight:700;font-family:"Fraunces"}
+
+  /* mood */
+  .moodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1;min-height:0;margin-top:20px}
+  .moodgrid .m{border-radius:12px;background-size:cover;background-position:center;box-shadow:0 14px 34px -24px rgba(51,37,28,.45)}
+  .palette{display:flex;gap:10px;margin-top:18px;align-items:center}
+  .sw{width:34px;height:34px;border-radius:8px;border:1px solid rgba(0,0,0,.08)}
+  .palette .pl{font-size:13.5px;color:var(--muted);margin-left:6px}
+
+  /* specs */
+  .speclist{display:flex;flex-direction:column}
+  .speclist .r{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+  .speclist .r:last-child{border-bottom:none}
+  .speclist .r b{color:var(--muted);font-weight:600}
+  .checkcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;height:100%;box-sizing:border-box;box-shadow:0 14px 34px -26px rgba(51,37,28,.4)}
+  .checkcard h4{font-size:19px;margin-bottom:14px}
+  .checkcard li{position:relative;padding-left:28px;font-size:14.5px;margin-bottom:11px;line-height:1.4}
+  .checkcard li::before{content:"";position:absolute;left:0;top:3px;width:15px;height:15px;border:2px solid var(--sage);border-radius:4px}
+  .hashrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .hashrow span{background:var(--cream);border:1px solid var(--line);border-radius:100px;padding:5px 12px;font-size:13px;font-weight:500;color:var(--sage-deep)}
+
+  /* closing */
+  .closing{height:100%;padding:56px 60px;display:flex;flex-direction:column;justify-content:center}
+  .closing h2{font-size:54px;color:#fff;max-width:16ch}
+  .closing .recap{color:#D7D2C4;font-size:18px;margin-top:20px;max-width:52ch;line-height:1.55}
+  .closing .lk{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font-size:16px;color:#DCE4CC;font-weight:600}
+  .closing .cta{margin-top:30px;font-size:13.5px;color:#A9B593;letter-spacing:.03em}
+  a.plain{color:inherit;text-decoration:none;border-bottom:1px solid rgba(174,190,150,.5)}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- 1 · COVER -->
+  <section data-background-color="#2E3A2A" class="on-dark">
+    <div class="cover">
+      <div class="art"></div>
+      <div class="txt">
+        <div class="brandmark" style="color:#fff">CÔBA'S DAUGHTER<small style="color:#9FA894">Creator Deck · Summer 2026</small></div>
+        <h1>The Endless Summer Jumbo Refill Ritual</h1>
+        <p class="lede">Two videos. One 2-step ritual. That effortless, rich-girl-on-vacation glow — from a 20oz refill pouch that makes the girl math <em>math</em>.</p>
+        <div class="chips">
+          <span class="chip">🎬 2 videos / creator</span>
+          <span class="chip">🧴 Coffee Scrub + Aloe Gel</span>
+          <span class="chip">📱 9:16 · TikTok + Reels</span>
+        </div>
+        <div class="foot">Full brief → arietao-stack.github.io/coba-refill-brief &nbsp;·&nbsp; use ← → to navigate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · THE ASK -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">Read this first</div>
+      <h2 class="title">The Ask, in 20 seconds</h2>
+      <div class="body" style="align-items:center">
+        <div class="col" style="flex:1.15">
+          <div class="card vcard">
+            <div class="num">1</div>
+            <div><h3>The "De-Crusting" ASMR Restock</h3><p>Fast, satisfying, <b>no talking</b>. Refill your old jars from the jumbo 20oz pouches over a trending audio + crisp real ASMR sound.</p></div>
+          </div>
+          <div class="card vcard">
+            <div class="num">2</div>
+            <div><h3>The "Rich Girl Glow" Talking-Head</h3><p>Pure FaceTime energy. Gossip with your bestie about the 2-step hack, cut with the pretty texture B-roll from Video 1.</p></div>
+          </div>
+          <div class="ritual">The ritual both videos sell: <b>Step 1</b> — Robusta Coffee Scrub in the shower. <b>Step 2</b> — lock in the glow with the Aloe Soothing Gel.</div>
+        </div>
+        <div class="col" style="flex:.85">
+          <div class="winpanel">
+            <h4>What "winning" looks like</h4>
+            <ul>
+              <li>Hook lands in the first 0.5s — text on screen at 0:00</li>
+              <li>Texture shots so satisfying people rewatch</li>
+              <li>Sounds real, not scripted — like a friend's advice</li>
+              <li>Makes the 20oz refill feel like a flex, not a chore</li>
+              <li>Native to the platform — no polished "ad" energy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · VIBE & RULES -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">The vibe &amp; the golden rules</div>
+      <h2 class="title">Talk like her, not like a brand</h2>
+      <p class="sub">For the girls who want that effortless, rich-girl-on-vacation glow — without a high-maintenance 10-step routine. Real-talk, a little unhinged, very online.</p>
+      <div class="body">
+        <div class="col"><div class="rulecard do">
+          <h4>✅ Do say</h4>
+          <ul>
+            <li>"glazed donut skin", "de-crusting", "girl math", "sustainable baddie"</li>
+            <li>"no gatekeeping", "the girl math is mathing", "top-tier"</li>
+            <li>Name real problems: strawberry legs, patchy fake tan, waterproof SPF, pool chlorine</li>
+            <li>Sound like you're texting your best friend</li>
+            <li>Be sensory: "thick like cake frosting", "reflects the sunlight"</li>
+          </ul>
+        </div></div>
+        <div class="col"><div class="rulecard dont">
+          <h4>🚫 Don't say</h4>
+          <ul>
+            <li>"anti-aging", "best-seller", "clinically proven"</li>
+            <li>Any corporate / infomercial voice</li>
+            <li>Over-scripted, word-perfect delivery</li>
+            <li>Long product monologues — keep it snappy</li>
+            <li>Don't oversell — let the texture &amp; glow do the talking</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · THE TWO HEROES -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">The two heroes</div>
+      <h2 class="title">What you're refilling</h2>
+      <p class="sub">Both come as a jumbo <b>20oz (567g) refill pouch</b> — nearly double the jar, way less plastic. That's the whole "girl math" flex.</p>
+      <div class="body">
+        <div class="col"><div class="card pcard">
+          <div class="im"><img src="img/bundle-scrub.jpg" alt="Coffee scrub jar + refill pouch" /></div>
+          <div class="pb">
+            <div class="step">Step 1 · The Scrub</div>
+            <h3>Robusta Coffee Body Exfoliator</h3>
+            <div class="ings">Robusta Coffee 100% · Green Tea · Shea Butter</div>
+            <div class="specrow"><span>Refill 20oz / 567g</span><span>Jar 300g</span><span>Texture: cake frosting</span></div>
+            <ul class="sell">
+              <li>Thick &amp; rich like frosting — never dry or crumbly</li>
+              <li>Melts away waterproof SPF &amp; sweat; erases patchy fake tan</li>
+              <li>No strawberry legs, no summer body breakouts</li>
+            </ul>
+          </div>
+        </div></div>
+        <div class="col"><div class="card pcard">
+          <div class="im"><img src="img/bundle-aloe.jpg" alt="Aloe gel jar + refill pouch" /></div>
+          <div class="pb">
+            <div class="step">Step 2 · The Glow</div>
+            <h3>Aloe Soothing Gel</h3>
+            <div class="ings">99% Pure Aloe · Coconut (Cocos Nucifera)</div>
+            <div class="specrow"><span>Refill 20oz / 567g</span><span>Jar 208g</span><span>Zero stickiness</span></div>
+            <ul class="sell">
+              <li>Clear, juicy, instantly cooling</li>
+              <li>Absorbs in seconds — get dressed right away</li>
+              <li>Leaves a crazy reflective, glazed-donut sheen</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · VIDEO 1 OVERVIEW -->
+  <section data-background-color="#2E3A2A" class="on-dark">
+    <div class="pad">
+      <div class="body" style="margin-top:0;align-items:center">
+        <div class="col" style="flex:1;gap:0;justify-content:center">
+          <div class="divider"></div>
+          <div class="eyebrow lt">Video 1 · Aesthetic / music-led</div>
+          <div class="videohead"><h2>The "De-Crusting" ASMR Restock</h2></div>
+          <p class="sub" style="margin-top:16px;max-width:38ch">Super fast-paced, highly satisfying visual restock. Refill your old jars from the 20oz pouches. <b style="color:#EDEAE0">No talking</b> — a trending sped-up / lo-fi track layered with crisp real ASMR: pouch crinkle, thick pour, jar tap.</p>
+          <div class="chips" style="margin-top:22px"><span class="chip">⏱ Target ~8–12s</span><span class="chip">🔇 No voiceover</span></div>
+        </div>
+        <div class="col" style="flex:1;justify-content:center">
+          <div class="eyebrow lt" style="margin-bottom:2px">On-screen text hooks — drop one at 0:00</div>
+          <div class="hooklist">
+            <div class="hookc">"My toxic trait is buying body care in 20oz bulk because I refuse to have crusty skin this summer 💀"</div>
+            <div class="hookc">"Stop buying new plastic jars every month. This 20oz refill hack is top-tier girl math ✨"</div>
+            <div class="hookc">"De-crusting my skin after a 3-day pool party. The texture is literal cake frosting."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · VIDEO 1 STORYBOARD -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">Video 1 · Shot-by-shot</div>
+      <h2 class="title">The storyboard</h2>
+      <div class="beats">
+        <div class="beat">
+          <div class="bi" style="background-image:url('img/v1-squeeze.jpg')"></div>
+          <div class="bt"><div class="tc">0–3s</div><div class="role">The Squeeze</div><p>Tight macro of your hands squeezing the Coffee Scrub in one thick rope. Zig-zag slowly so it builds clean ridges inside the jar — like piping frosting on a cake.</p></div>
+        </div>
+        <div class="beat">
+          <div class="bi" style="background-image:url('img/v1-aloepour.jpg')"></div>
+          <div class="bt"><div class="tc">3–6s</div><div class="role">The Aloe Pour</div><p>Cut to squeezing the clear, juicy, instantly-cooling Aloe Gel into its jar. Let it catch the light so the gel looks glossy and alive.</p></div>
+        </div>
+        <div class="beat">
+          <div class="bi" style="background-image:url('img/hero.jpg')"></div>
+          <div class="bt"><div class="tc">6–10s</div><div class="role">The Payoff</div><p>Scrub melting on wet skin in the shower → fast cut to the Aloe Gel swiped on your legs in direct sun, leaving a crazy reflective glaze. End on the glow.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · VIDEO 2 OVERVIEW -->
+  <section data-background-color="#33251C" class="on-dark">
+    <div class="pad">
+      <div class="body" style="margin-top:0;align-items:center">
+        <div class="col" style="flex:1;gap:0;justify-content:center">
+          <div class="divider" style="background:#C9A87F"></div>
+          <div class="eyebrow" style="color:#D9C3AE">Video 2 · Casual vlog / FaceTime</div>
+          <div class="videohead"><h2>The "Rich Girl Glow" Talking-Head</h2></div>
+          <p class="sub" style="margin-top:16px;max-width:38ch;color:#D7CDBF">Pure FaceTime energy — casual, organic, unhinged-but-real. Talk to camera like you're gossiping with your bestie, intercut with the pretty texture B-roll from Video 1.</p>
+          <div class="chips" style="margin-top:22px"><span class="chip">⏱ Target ~20–40s</span><span class="chip">🗣 Talking head + B-roll</span></div>
+        </div>
+        <div class="col" style="flex:1;justify-content:center">
+          <div class="eyebrow" style="color:#D9C3AE;margin-bottom:2px">Say one out loud at 0:00</div>
+          <div class="hooklist">
+            <div class="hookc">"If you're still trying to scrub off waterproof SPF and old self-tan with regular body wash… please stop, you're hurting my feelings."</div>
+            <div class="hookc">"Let's talk about how the girls with the blindingly glossy summer skin are actually doing it. No gatekeeping."</div>
+            <div class="hookc">"I found the ultimate 2-step body hack for that rich-girl-on-vacation skin, and the girl math is actually mathing."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · VIDEO 2 SCRIPT -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">Video 2 · Casual voiceover guide</div>
+      <h2 class="title">Your words, this flow</h2>
+      <div class="steps">
+        <div class="scard">
+          <div class="sh"><div class="num">1</div><h4>The 20oz Flex</h4></div>
+          <p>"CÔBA'S DAUGHTER just dropped these massive 20oz Refill Pouches and it's giving endless summer supply. The girl math is mathing — nearly double the product for way less money, and no wasting plastic on new jars every month. We love a sustainable baddie."</p>
+        </div>
+        <div class="scard">
+          <div class="sh"><div class="num">2</div><h4>The Scrub</h4></div>
+          <p>"First up, the Robusta Coffee Scrub. The texture is insane — thick and rich like cake frosting, not dry and crumbly. Smells like a luxury spa with real Vietnamese coffee and green tea. Melts waterproof sunscreen, sweat, and erases patchy fake tan — so no breakouts or strawberry legs."</p>
+        </div>
+        <div class="scard">
+          <div class="sh"><div class="num">3</div><h4>The Aloe Gel</h4></div>
+          <p>"Then lock it all in with this 99% Pure Aloe Gel. Best part? Zero stickiness. It absorbs instantly so you can get dressed right away — but it leaves your skin looking like a literal glazed donut under the sun."</p>
+        </div>
+      </div>
+      <div class="noteband"><b>Delivery:</b> keep it loose — pauses, laughs, "wait" restarts welcome. Hold the pouch up when you say "20oz." React genuinely to the texture. End on the glow + a soft CTA in your own words.</div>
+    </div>
+  </section>
+
+  <!-- 9 · HOOK BANK -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">The hook bank</div>
+      <h2 class="title">Scroll-stopping openers — pick your vibe</h2>
+      <div class="bank">
+        <div class="bankcol">
+          <h4>🚨 Call-Out &amp; Real Talk</h4>
+          <div class="ct">High-energy, direct to camera</div>
+          <ul>
+            <li>If your legs look like a strawberry and a lizard had a baby… please stay. We need to talk.</li>
+            <li>Stop layering lotion over 3 days of pool chlorine and waterproof SPF. It's getting gross.</li>
+            <li>Unpopular opinion: still buying 6oz body care jars in July? You're playing yourself.</li>
+            <li>My toxic trait: judging people whose face is 10/10 but body skin is giving sandpaper.</li>
+            <li>Shave for bikini season and instantly get razor bumps? You're showering wrong.</li>
+          </ul>
+        </div>
+        <div class="bankcol">
+          <h4>💸 "Girl Math" Flex</h4>
+          <div class="ct">Lead with the 20oz size</div>
+          <ul>
+            <li>I refuse to buy tiny scrubs anymore. It's a scam. Look at the size of this bag.</li>
+            <li>This 20oz refill is top-tier girl math. Double the product, half the plastic, zero guilt.</li>
+            <li>The $59 bulk body care hack the glossy-skin girls are quietly gatekeeping.</li>
+            <li>POV: a high-end spa brand lets you buy in 20oz bulk because you're a high-maintenance baddie.</li>
+            <li>Saving so much on body care this summer it's basically paying for my flight to Miami.</li>
+          </ul>
+        </div>
+        <div class="bankcol">
+          <h4>🍩 Glazed Donut Glow</h4>
+          <div class="ct">Clean-girl, lifestyle</div>
+          <ul>
+            <li>How the girls who look like a walking glazed donut at the beach are actually doing it. No gatekeeping.</li>
+            <li>That "rich-girl-on-a-yacht" body glow when you're really just at the community pool.</li>
+            <li>The 2-step ritual that makes you smell like an espresso bar and look like a mirror in the sun.</li>
+            <li>Want skin that literally reflects sunlight? Throw away your regular body wash right now.</li>
+            <li>I don't wear body highlighter anymore. I just do this 2-step shower routine.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · MOOD -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">Look &amp; feel</div>
+      <h2 class="title">The mood board</h2>
+      <p class="sub">Editorial, botanical, sun-drenched. Warm neutrals, sage green, deep coffee. Natural light &gt; ring light. This is the world your B-roll should live in.</p>
+      <div class="moodgrid">
+        <div class="m" style="background-image:url('img/scrub-beige.jpg')"></div>
+        <div class="m" style="background-image:url('img/mood-aloe.jpg')"></div>
+        <div class="m" style="background-image:url('img/aloe-coupe.jpg')"></div>
+        <div class="m" style="background-image:url('img/mood-scrub.jpg')"></div>
+      </div>
+      <div class="palette">
+        <div class="sw" style="background:#FBF8F1"></div>
+        <div class="sw" style="background:#E7DCC8"></div>
+        <div class="sw" style="background:#7E8E6C"></div>
+        <div class="sw" style="background:#2E3A2A"></div>
+        <div class="sw" style="background:#33251C"></div>
+        <span class="pl">Cream · Sand · Sage · Forest · Coffee</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · SPECS -->
+  <section data-background-color="#FBF8F1">
+    <div class="pad">
+      <div class="divider"></div>
+      <div class="eyebrow">Deliverables &amp; specs</div>
+      <h2 class="title">The technical checklist</h2>
+      <p class="sub">Shoot vertical, post native. Recommended standard below — confirm final promo price, links &amp; deadline with your point of contact.</p>
+      <div class="body">
+        <div class="col" style="justify-content:flex-start">
+          <div class="speclist">
+            <div class="r"><span>Aspect ratio</span><b>9:16 · 1080×1920</b></div>
+            <div class="r"><span>Platform</span><b>TikTok + Instagram Reels</b></div>
+            <div class="r"><span>Video 1 length</span><b>~8–12s · no VO · ASMR</b></div>
+            <div class="r"><span>Video 2 length</span><b>~20–40s · talking head</b></div>
+            <div class="r"><span>Audio</span><b>Trending sound + real SFX</b></div>
+            <div class="r"><span>Text hook</span><b>On screen at 0:00</b></div>
+            <div class="r"><span>Delivery</span><b>Hi-res files + posted link</b></div>
+          </div>
+          <div class="hashrow">
+            <span>#glazeddonutskin</span><span>#girlmath</span><span>#decrusting</span><span>#sustainablebaddie</span><span>#bodycare</span><span>#summerbody</span><span>#strawberrylegs</span><span>#cobasdaughter</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="checkcard">
+            <h4>Before you post — check yourself</h4>
+            <ul>
+              <li>Hook (text or spoken) hits in the first 0.5 second</li>
+              <li>The 20oz pouch is clearly shown as the flex</li>
+              <li>At least one super-satisfying texture close-up</li>
+              <li>The 2 steps read clearly: Scrub → Aloe Gel</li>
+              <li>Delivery sounds real, not like an ad read</li>
+              <li>Glazed-donut / reflective glow payoff is visible</li>
+              <li>No banned words (anti-aging, best-seller, clinical)</li>
+              <li>Brand tagged + link in bio / caption</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · CLOSING -->
+  <section data-background-color="#2E3A2A" class="on-dark">
+    <div class="closing">
+      <div class="brandmark" style="color:#fff">CÔBA'S DAUGHTER<small style="color:#9FA894">Endless Summer · Jumbo Refill Ritual</small></div>
+      <h2 style="margin-top:26px">Now go make them glow. ✨</h2>
+      <p class="recap">Two videos, one ritual: <b style="color:#EDEAE0">de-crust</b> with the Robusta Coffee Scrub, then <b style="color:#EDEAE0">lock in the glaze</b> with the Aloe Gel. Hook at 0:00, keep it real, let the 20oz refill be the flex.</p>
+      <div class="lk">🔗 Full brief &amp; tap-to-copy hooks → <a class="plain" href="index.html">arietao-stack.github.io/coba-refill-brief</a></div>
+      <div class="cta">Questions before you shoot? Reach out to your campaign point of contact.</div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<script src="vendor/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0.02,
+    center: false, hash: true, controls: true, progress: true,
+    slideNumber: 'c/t', transition: 'slide', transitionSpeed: 'default',
+    controlsTutorial: false
+  });
+</script>
+</body>
+</html>
